@@ -1,9 +1,21 @@
+import { 
+	BrowserRouter as Router,
+	Route,
+	Switch
+} from 'react-router-dom'
+import { Dashboard, Reports, Settings } from './components'
+import Report from './components/Report'
 
 function App() {
   return (
-    <div className="App">
-      <h1>React Routing trainning 2</h1>
-    </div>
+    <Router>
+			<Switch>
+				<Route exact path='/reports/:id' component={ Report }/>
+				<Route exact path='/reports' component={ Reports }/>
+				<Route exact path='/settings' component={ Settings }/>
+				<Route exact path='/' component={ Dashboard }/>
+			</Switch>
+		</Router>
   );
 }
 
